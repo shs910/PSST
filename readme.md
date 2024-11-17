@@ -7,7 +7,8 @@
 
 <p align="center">
   📄 <a href="https://aclanthology.org/2024.findings-emnlp.495.pdf" target="_blank">Paper</a> &nbsp; | &nbsp;
-  🤗 <a href="https://huggingface.co" target="_blank">Hugging face (data&models)</a> &nbsp;
+  🎰 <a href="https://huggingface.co/datasets/hot-pot/Test_Data_for_PSST" target="_blank">Datasets</a> &nbsp;| &nbsp;
+  👹 <a href="https://huggingface.co/hot-pot/EvalModels_for_PSST" target="_blank">Models</a> &nbsp;
 </p>
 
 ## Contents
@@ -86,7 +87,7 @@ the text level in each dimension compared to TEDTalks data (green)
 <p align="center"> <img src="images/800-interactivity+orality.png" style="width: 100%;" id="title-icon"></p>
 
 **Note**  
-- Our evaluation models can be found [here](https://huggingface.co).  
+- Our evaluation models can be found [here](https://huggingface.co/hot-pot/EvalModels_for_PSST).  
 - More experiments demonstrating the effectiveness of our method can be found in Section 4.1.3 in our paper.
 
 ### Semantic Preservation
@@ -102,7 +103,7 @@ Specifically, for the original text, 10 questions (20 total) are generated from 
   - Refer to Figure 24 and 25 in our paper for the case study.
 
 **Note**  
-- Our evaluation data can be found [here](https://huggingface.co).  
+- Our evaluation data can be found [here](https://huggingface.co/datasets/hot-pot/Test_Data_for_PSST).  
 - The QA-Model used in our experiments are [Llama-3-8B-Instruct](https://huggingface.co/meta-llama/Meta-Llama-3-8B-Instruct)
 - More experiments demonstrating the effectiveness of our method can be found in Section 4.2.2 in our paper.
 
