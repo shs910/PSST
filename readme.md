@@ -25,7 +25,7 @@
     - [Semantic Preservation](#semantic-preservation)
       - [1.QA-Based Method](#1qa-based-method)
       - [2.Evaluation Results](#2evaluation-results-1)
-    - [Try the speeh draft of your model](#try-the-speeh-draft-of-your-model)
+  - [😲Try the speeh draft of your model](#try-the-speeh-draft-of-your-model)
   - [📹Vedio Demo — digital personas](#vedio-demo--digital-personas)
   - [🫣Citation](#citation)
 
@@ -107,10 +107,64 @@ Specifically, for the original text, 10 questions (20 total) are generated from 
 - The QA-Model used in our experiments are [Llama-3-8B-Instruct](https://huggingface.co/meta-llama/Meta-Llama-3-8B-Instruct)
 - More experiments demonstrating the effectiveness of our method can be found in Section 4.2.2 in our paper.
 
-### Try the speeh draft of your model
-```
-code TODO
-```
+## 😲Try the speeh draft of your model
+1. Prepare Data
+    - Dowload the [data](https://huggingface.co/datasets/hot-pot/Test_Data_for_PSST) and put it in the `code/oral_exp/raw` folder.
+
+      ```
+      code 
+      |-- oral_exp
+      |   -- raw
+      |       --400_delta_100
+      |       --800_delta_200
+      |       --1200_delta_200
+      |-- semantic_preservation
+      |-- style_evaluation
+      |-- style_score_ditribution
+      |-- style_transfer
+      ```
+2. Run Style Transfer
+    - Run the following command to perform style transfer for local models.
+      ```
+      bash  code/style_transfer/sh/run_local_model.sh
+      ```
+    - If you want to use APIs to run the style transfer, please set your API_KEY in the `code/style_transfer/openai_access.py` file and run the following command.
+      ```
+      bash  code/style_transfer/sh/run_api.sh
+      ```
+    - After running the style transfer, you can find the results in the `code/oral_exp/test_res/${MODEL_NAME}/prediction/` folder.
+3. Run Style Evaluation
+    - Run the following command to segment passage to sentences.
+      ```
+      bash /code/style_evaluation/sh_baseline/passage_segmentation_paraphrase.sh
+      bash /code/style_evaluation/sh_baseline/passage_segmentation_srctext.sh
+      bash /code/style_evaluation/sh_baseline/passage_segmentation_models.sh
+      ```
+    - Run the following command to score sentence (and chunck).
+      ```
+      bash /code/style_evaluation/sh_baseline/llama2_score_passage_paraphrase.sh
+      bash /code/style_evaluation/sh_baseline/llama2_score_passage_srctext.sh
+      bash /code/style_evaluation/sh_baseline/llama2_score_passage.sh
+      ```
+4. Run Style Score Distribution
+``    - Run the following command to evaluate the style score distribution.
+      ```
+      python /code/style_score_ditribution/prepare_dataset.py
+      python /code/style_score_ditribution/plot.py
+      ```
+5. Run Semantic Preservation
+    - Run the following command to evaluate the QA accuracy based on `src_text` and `paraphrased_text`.
+      ```
+      bash code/semantic_preservation/run_llama3_qa_src_text.sh
+      bash code/semantic_preservation/run_llama3_qa_paraphrase.sh
+
+      ```
+    - Run the following command to evaluate the QA accuracy based on `transfered_text`.
+      ```
+      bash code/semantic_preservation/run_llama3_qa_models.sh
+      ```
+    - You may opt to replace the QA models with alternative ones, akin to attending a presentation delivered by a different individual.
+   
 ## 📹Vedio Demo — digital personas
 <p align="center"> <img src="images/demo.png" style="width: 100%;" id="title-icon"></p>
 
