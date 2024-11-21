@@ -28,6 +28,7 @@
   - [😲Try the speeh draft of your model](#try-the-speeh-draft-of-your-model)
   - [📹Vedio Demo — digital personas](#vedio-demo--digital-personas)
   - [🫣Citation](#citation)
+  - [🫶🏻Acknowledgement](#acknowledgement)
 
 ## 🥳Introduction
 **Public-Speaking Style Transfer (PSST)**  is an complex, passage-level, scalable, and downstream application-oriented text style transfer task. We started from linguistics and real-world data to analyze the key features of "public speaking style" and proposed fine-grained evaluation metrics for such complex long-text style transfer tasks. Comprehensive experimental results reveal that current LLMs suffer from **over-stylization**, **uneven style strength distribution**, and **severe semantic degradation** problems. We hope that this task can serve as a stepping stone to explore and enhance the language style modeling capabilities of LLMs, promote AI's understanding and imitation of human language, and facilitate the realization of more personalized applications.
@@ -108,16 +109,21 @@ Specifically, for the original text, 10 questions (20 total) are generated from 
 - More experiments demonstrating the effectiveness of our method can be found in Section 4.2.2 in our paper.
 
 ## 😲Try the speeh draft of your model
-1. Prepare Data
-    - Dowload the [data](https://huggingface.co/datasets/hot-pot/Test_Data_for_PSST) and put it in the `code/oral_exp/raw` folder.
+1. Prepare Data and Models
+    - Dowload the [data](https://huggingface.co/datasets/hot-pot/Test_Data_for_PSST) and [eval-models](https://huggingface.co/hot-pot/EvalModels_for_PSST) and put it in the `code/oral_exp/` folder.
 
       ```
       code 
       |-- oral_exp
       |   -- raw
-      |       --400_delta_100
-      |       --800_delta_200
-      |       --1200_delta_200
+      |      |--400_delta_100
+      |      |--800_delta_200
+      |      |--1200_delta_200
+      |   -- evalmodels
+      |      |--emotionality
+      |      |--interactivity
+      |      |--orality
+      |      |--vividness
       |-- semantic_preservation
       |-- style_evaluation
       |-- style_score_ditribution
@@ -198,3 +204,6 @@ If you find our benchmark or evaluation pipeline useful or interesting, please c
     abstract = "Language style is necessary for AI systems to accurately understand and generate diverse human language. However, previous text style transfer primarily focused on sentence-level data-driven approaches, limiting exploration of potential problems in large language models (LLMs) and the ability to meet complex application needs. To overcome these limitations, we introduce a novel task called Public-Speaking Style Transfer (PSST), which aims to simulate humans to transform passage-level, official texts into a public-speaking style. Grounded in the analysis of real-world data from a linguistic perspective, we decompose public-speaking style into key sub-styles to pose challenges and quantify the style modeling capability of LLMs. For such intricate text style transfer, we further propose a fine-grained evaluation framework to analyze the characteristics and identify the problems of stylized texts. Comprehensive experiments suggest that current LLMs struggle to generate public speaking texts that align with human preferences, primarily due to excessive stylization and loss of semantic information. We will release our data, code, and model upon acceptance.",
 }
 ```
+## 🫶🏻Acknowledgement
+1. For scorer code, we use the code template of [deita](https://github.com/hkust-nlp/deita)
+2. For training code, we use the code template of [open-instruct](https://github.com/allenai/open-instruct)
